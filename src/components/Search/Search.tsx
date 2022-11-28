@@ -23,17 +23,17 @@ const Search: React.FC = () => {
     }
 
     dispatch(fetchCityData(searchCity));
-
+    setSearchInput("");
     searchRef.current = searchCity;
   }, [dispatch, searchCity]);
 
   const handelChange = (e: any) => {
-    const value = e.target.value.trim();
+    const value = e.target.value;
     setSearchInput(value);
   };
 
   const handelSearch = (e: any) => {
-    if (searchInput && searchInput !== searchRef.current) {
+    if (searchInput.trim() && searchInput !== searchRef.current) {
       setSearchCity(searchInput);
     }
   };
